@@ -4,29 +4,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class HourlyWageCalculator extends JFrame {
-    private JTextField hourlyRateField;
-    private JTextField hoursWorkedField;
-    private JButton eraseButton;
-    private JButton[] numberButtons;
-    private StringBuilder inputStringBuilder;
-    private boolean hourlyRateInputMode; // ì‹œê¸‰ ì…ë ¥ ëª¨ë“œ ì—¬ë¶€
+    private JTextField hourlyRateField; //½Ã±Ş ÀÔ·Â ÇÊµå
+    private JTextField hoursWorkedField; // ÃÑ ±Ù¹« ½Ã°£ ÀÔ·ÂÇÊµå 
+    private JButton eraseButton; // ÃÊ±âÈ­ ¹öÆ°
+    private JButton[] numberButtons; //¼ıÀÚ ¹öÆ° ¹è¿­ 
+    private StringBuilder inputStringBuilder; // ÀÔ·ÂµÈ ¼ıÀÚ ÀúÀåÇÏ´Â ¹®ÀÚ¿­
+    private boolean hourlyRateInputMode; // ½Ã±Ş ÀÔ·Â ¸ğµå ¿©ºÎ
 
     public HourlyWageCalculator() {
-        setTitle("Hourly Wage Calculator");
-        setSize(300, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridLayout(5, 3));
+        setTitle("Hourly Wage Calculator"); //ÇÁ·¹ÀÓ Á¦¸ñ¼³Á¤
+        setSize(300, 200); // ÇÁ·¹ÀÓ Å©±â ¼³Á¤ 
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ´İ±â¹öÆ° µ¿ÀÛ¼³Á¤ 
+        setLayout(new GridLayout(5, 3)); // ±×¸®µå ·¹ÀÌ¾Æ¿ô ¼³Á¤ 
 
-        JLabel hourlyRateLabel = new JLabel("ì‹œê¸‰ (ì›): ");
-        JLabel hoursWorkedLabel = new JLabel("ì´ ê·¼ë¬´ ì‹œê°„: ");
-        JLabel taxRateLabel = new JLabel("ì„¸ê¸ˆ: 3.3%");
+        JLabel hourlyRateLabel = new JLabel("½Ã±Ş (¿ø): "); //½Ã±Ş ·¹ÀÌºí »ı¼º 
+        JLabel hoursWorkedLabel = new JLabel("ÃÑ ±Ù¹« ½Ã°£: "); //ÃÑ ±Ù¹«½Ã°£ ·¹ÀÌºí »ı¼º 
+        JLabel taxRateLabel = new JLabel("¼¼±İ: 3.3%"); //¼¼±İ ·¹ÀÌºí »ı¼º 
 
-        hourlyRateField = new JTextField();
-        hoursWorkedField = new JTextField();
-        inputStringBuilder = new StringBuilder();
-        hourlyRateInputMode = true;
+        hourlyRateField = new JTextField(); //½Ã±Ş ÀÔ·Â ÇÊµå »ı¼º 
+        hoursWorkedField = new JTextField(); // ÃÑ ±Ù¹«½Ã°£ ÀÔ·Â ÇÊµå »ı¼º 
+        inputStringBuilder = new StringBuilder(); //ÀÔ·ÂµÈ ¼ıÀÚ¸¦ ÀúÀåÇÏ´Â ¹®ÀÚ¿­ »ı¼º 
+        hourlyRateInputMode = true; //½Ã±ŞÀÔ·Â ¸ğµå ÃÊ±âÈ­ 
 
-        eraseButton = new JButton("ì´ˆê¸°í™”");
+        eraseButton = new JButton("ÃÊ±âÈ­"); //ÃÊ±âÈ­ ¹öÆ°»ı¼º 
         eraseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -37,7 +37,7 @@ public class HourlyWageCalculator extends JFrame {
         numberButtons = new JButton[10];
         for (int i = 0; i < numberButtons.length; i++) {
             final int number = i;
-            numberButtons[i] = new JButton(Integer.toString(i));
+            numberButtons[i] = new JButton(Integer.toString(i)); //¼ıÀÚ ¹öÆ°»ı¼º 
             numberButtons[i].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -46,7 +46,7 @@ public class HourlyWageCalculator extends JFrame {
             });
         }
 
-        JButton calculateButton = new JButton("ê³„ì‚°í•˜ê¸°");
+        JButton calculateButton = new JButton("°è»êÇÏ±â"); //°è»êÇÏ±â ¹öÆ°»ı¼º
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -54,17 +54,17 @@ public class HourlyWageCalculator extends JFrame {
             }
         });
 
-        add(hourlyRateLabel);
-        add(hourlyRateField);
-        add(hoursWorkedLabel);
-        add(hoursWorkedField);
+        add(hourlyRateLabel); //½Ã±Ş ·¹ÀÌºí Ãß°¡
+        add(hourlyRateField); //½Ã±Ş ÀÔ·Â ÇÊµå Ãß°¡
+        add(hoursWorkedLabel); //ÃÑ ±Ù¹«½Ã°£ ·¹ÀÌºí Ãß°¡
+        add(hoursWorkedField); //ÃÊ±âÈ­ ¹öÆ° Ãß°¡
         add(eraseButton);
 
         for (int i = 1; i < numberButtons.length; i++) {
-            add(numberButtons[i]);
+            add(numberButtons[i]); //¼ıÀÚ¹öÆ°Ãß°¡
         }
 
-        // Add number 0 button
+        // ¼ıÀÚ 0 ¹öÆ° »ı¼º 
         numberButtons[0] = new JButton("0");
         numberButtons[0].addActionListener(new ActionListener() {
             @Override
@@ -72,11 +72,10 @@ public class HourlyWageCalculator extends JFrame {
                 addNumber(0);
             }
         });
-        add(numberButtons[0]);
-
-        add(taxRateLabel);
-        add(new JLabel()); // Empty label for spacing
-        add(calculateButton);
+        add(numberButtons[0]); //¼ıÀÚ 0¹öÆ° Ãß°¡
+        add(taxRateLabel); //¼¼±İ ·¹ÀÌºí Ãß°¡ 
+        add(new JLabel()); //°£°İÀ» À§ÇÑ ºó ·¹ÀÌºí Ãß°¡ 
+        add(calculateButton); //°è»êÇÏ±â ¹öÆ° Ãß°¡ 
 
         hourlyRateField.addActionListener(new ActionListener() {
             @Override
@@ -99,38 +98,38 @@ public class HourlyWageCalculator extends JFrame {
     }
 
     private void calculateWage() {
-        double hourlyRate = Double.parseDouble(hourlyRateField.getText());
-        double hoursWorked = Double.parseDouble(hoursWorkedField.getText());
-        double wage = hourlyRate * hoursWorked;
-        double taxRate = 3.3;
-        double taxAmount = wage * (taxRate / 100);
-        double netWage = wage - taxAmount;
+        double hourlyRate = Double.parseDouble(hourlyRateField.getText());  // ½Ã±Ş ÀÔ·Â ÇÊµå¿¡¼­ ½Ã±Ş °ª °¡Á®¿À±â
+        double hoursWorked = Double.parseDouble(hoursWorkedField.getText());  // ÃÑ ±Ù¹« ½Ã°£ ÀÔ·Â ÇÊµå¿¡¼­ ÃÑ ±Ù¹« ½Ã°£ °ª °¡Á®¿À±â
+        double wage = hourlyRate * hoursWorked; // ½Ã±Ş°ú ÃÑ ±Ù¹« ½Ã°£À¸·Î ±Ş¿© °è»ê
+        double taxRate = 3.3;   // ¼¼À² ¼³Á¤
+        double taxAmount = wage * (taxRate / 100); // ¼¼±İ °è»ê
+        double netWage = wage - taxAmount;   // ¼¼ÈÄ ±Ş¿© °è»ê
 
-        JOptionPane.showMessageDialog(this, "ì›”ê¸‰: " + wage + "ì›" + "\nì„¸ê¸ˆ (3.3%): " + taxAmount + "ì›" + "\nì„¸í›„ ì›”ê¸‰: " + netWage + "ì›", "ê³„ì‚° ê²°ê³¼", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "¿ù±Ş: " + wage + "¿ø" + "\n¼¼±İ (3.3%): " + taxAmount + "¿ø" + "\n¼¼ÈÄ ¿ù±Ş: " + netWage + "¿ø", "°è»ê °á°ú", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void eraseInput() {
         inputStringBuilder.setLength(0);
         if (hourlyRateInputMode) {
-            hourlyRateField.setText("");
+            hourlyRateField.setText(""); //½Ã±Ş ÀÔ·ÂÇÊµå ÃÊ±âÈ­
         } else {
-            hoursWorkedField.setText("");
+            hoursWorkedField.setText(""); //ÃÑ ±Ù¹«½Ã°£ ÀÔ·ÂÇÊµå ÃÊ±âÈ­
         }
     }
 
     private void addNumber(int number) {
         if (hourlyRateInputMode) {
             if (inputStringBuilder.length() == 0) {
-                hourlyRateField.setText(""); // ì´ì „ ê°’ ì´ˆê¸°í™”
+                hourlyRateField.setText(""); // ÀÌÀü °ª ÃÊ±âÈ­
             }
-            inputStringBuilder.append(number); // ìˆ«ì ì¶”ê°€
-            hourlyRateField.setText(hourlyRateField.getText() + number); // ê°’ì„ ì´ì–´ì„œ í‘œì‹œ
+            inputStringBuilder.append(number); // ¼ıÀÚ Ãß°¡
+            hourlyRateField.setText(hourlyRateField.getText() + number); // °ªÀ» ÀÌ¾î¼­ Ç¥½Ã
         } else {
             if (inputStringBuilder.length() == 0) {
-                hoursWorkedField.setText(""); // ì´ì „ ê°’ ì´ˆê¸°í™”
+                hoursWorkedField.setText(""); // ÀÌÀü °ª ÃÊ±âÈ­
             }
-            inputStringBuilder.append(number); // ìˆ«ì ì¶”ê°€
-            hoursWorkedField.setText(hoursWorkedField.getText() + number); // ê°’ì„ ì´ì–´ì„œ í‘œì‹œ
+            inputStringBuilder.append(number); // ¼ıÀÚ Ãß°¡
+            hoursWorkedField.setText(hoursWorkedField.getText() + number); // °ªÀ» ÀÌ¾î¼­ Ç¥½Ã
         }
     }
 
@@ -138,9 +137,8 @@ public class HourlyWageCalculator extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new HourlyWageCalculator();
+                new HourlyWageCalculator(); // HourlyWageCalculator °´Ã¼ »ı¼º
             }
         }
     }
 }
-        
