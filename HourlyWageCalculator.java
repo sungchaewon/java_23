@@ -122,6 +122,7 @@ public class HourlyWageCalculator extends JFrame {
         setVisible(true);
     }
 
+	//시급과 총 근무시간을 입력하여 월급과 세후 월급을 계산하는 메소드 
     public void calculateWage() {
         double hourlyRate = Double.parseDouble(hourlyRateField.getText());
         double hoursWorked = Double.parseDouble(hoursWorkedField.getText());
@@ -130,9 +131,11 @@ public class HourlyWageCalculator extends JFrame {
         double taxAmount = wage * (taxRate / 100);
         double netWage = wage - taxAmount;
 
+		//결과를 다이얼로그로 출력
         JOptionPane.showMessageDialog(this, "월급: " + wage + "원" + "\n세금 (3.3%): " + taxAmount + "원" + "\n세후 월급: " + netWage + "원", "계산 결과", JOptionPane.INFORMATION_MESSAGE);
     }
 
+	//입력된 값을 초기화하는 메소드
     public void eraseInput() {
         inputStringBuilder.setLength(0);
         if (hourlyRateInputMode) {
@@ -142,6 +145,8 @@ public class HourlyWageCalculator extends JFrame {
         }
     }
 
+
+	//숫자 버튼을 누르면 입력된 숫자를 처리하는 메소드 
     public void addNumber(int number) {
         if (hourlyRateInputMode) {
             if (inputStringBuilder.length() == 0) {
