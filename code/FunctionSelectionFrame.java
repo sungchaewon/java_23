@@ -12,6 +12,7 @@ class FunctionSelectionFrame {
         panel = new JPanel();
         panel.setLayout(new GridLayout(1, 2));
 
+        //go to Schoolinside and Schooloutside selectionFrame
         restaurantButton = new JButton(new ImageIcon("..//images//school.png"));
         restaurantButton.addActionListener(new ActionListener() {
             @Override
@@ -21,6 +22,7 @@ class FunctionSelectionFrame {
         });
         panel.add(restaurantButton);
 
+        //go to PartTimeJobFrame
         schoolButton = new JButton(new ImageIcon("..//images//alba.png"));
         schoolButton.addActionListener(new ActionListener() {
             @Override

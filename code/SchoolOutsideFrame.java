@@ -14,7 +14,7 @@ class SchoolOutsideFrame {
         JLabel label = new JLabel("학교 외부 프레임");
         panel.add(label, BorderLayout.CENTER);
 
-        backButton = new JButton("뒤로 가기");
+        backButton = new JButton("뒤로 가기"); //back button
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
